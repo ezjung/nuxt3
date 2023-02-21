@@ -1,8 +1,16 @@
-<script setup></script>
+<script setup>
+
+const route = useRoute()
+
+const { data } = await useAsyncData(() => {
+  return $fetch(`http://www.omdbapi.com/?apikey=f2b4b417&i=${route.params.id}`)
+})
+
+</script>
 
 <template>
   <div>
-    <h1>{{ $route.params.id }}</h1>
+    <pre>{{ data }}</pre>
   </div>
 </template>
 
