@@ -7,11 +7,24 @@ const route = useRoute()
 const { data } = await useFetch(
   `http://www.omdbapi.com/?apikey=f2b4b417&i=${route.params.id}`,
   {
-    pick: ['Plot', 'Title'],
+    pick: ['Plot', 'Title', 'Error'],
     // key: route.params.id
-    key: `/movies/${route.params.id}`
+    key: `/movies/${route.params.id}`,
+
+
+    // onResponse({request, response}) {
+    //   console.log(response)
+
+    //   if(response._data.Response == "False") {
+    //     showError({ statusCode: 404, statusMessage: "Page Not Found" })
+    //   }
+    // }
   }
 )
+
+if (data.value.Error === "Incorrect IMDb ID.") {
+  showError({ statusCode: 404, statusMessage: "Page Not Found" })
+}
 
 // const { data } = await useAsyncData(() => {
 //   return $fetch()
