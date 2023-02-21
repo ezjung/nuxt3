@@ -2,6 +2,8 @@
 
 <template>
   <div>
-    <NuxtPage />
+    Page: Movies directory
   </div>
 </template>
+
+<style scoped></style>

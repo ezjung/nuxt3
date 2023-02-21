@@ -2,6 +2,8 @@
 
 <template>
   <div>
-    <NuxtPage />
+    Page: Home
   </div>
 </template>
+
+<style scoped></style>
