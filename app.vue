@@ -3,6 +3,11 @@
 <template>
   <div>
     <nav class="flex justify-center gap-4 text-xl">
+      <!-- 
+        
+        /movies/id:123 
+      
+      -->
       <NuxtLink to="/">Home</NuxtLink>
       <NuxtLink to="/movies">Movies</NuxtLink>
       <NuxtLink to="https://codeforkitchen.com">Umami</NuxtLink>
