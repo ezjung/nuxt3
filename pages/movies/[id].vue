@@ -7,7 +7,7 @@ const route = useRoute()
 const { data } = await useFetch(
   `http://www.omdbapi.com/?apikey=f2b4b417&i=${route.params.id}`,
   {
-    pick: ['Plot', 'Title', 'Error'],
+    pick: ['Plot', 'Title', 'Poster', 'Error'],
     // key: route.params.id
     key: `/movies/${route.params.id}`,
 
@@ -38,6 +38,17 @@ if (data.value.Error === "Incorrect IMDb ID.") {
 //   //   return data.Title
 //   // }
 // })
+
+useHead({
+  // title: "Hello page",
+  title: data.value.Title,
+  meta: [
+    { name: "description", content: data.value.Plot },
+    { property: "og:description", content: data.value.Plot },
+    { property: "og:image", content: data.value.Poster },
+    { name: "twitter:card", content: `summary_large_image` },
+  ],
+})
 
 </script>
 

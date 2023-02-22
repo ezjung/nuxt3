@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+useHead({
+  titleTemplate: (pageTitle) => {
+    return pageTitle ? `My movie site:${pageTitle}` : 'My movie site'
+  }
+})
+</script>
 
 <template>
   <div>
